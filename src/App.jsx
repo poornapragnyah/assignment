@@ -5,8 +5,7 @@ import OrderDetails from './components/OrderDetails'
 function App() {
 
   return (
-    <div className='boody'>
-      <Navbar />
+    <div className='main'>
       <OrderDetails/>
     </div>
   )

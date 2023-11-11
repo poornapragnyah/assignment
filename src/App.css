@@ -1,8 +1,8 @@
-*{
+html{
     font-family: Poppins;
+    margin: 0;
 }
 
-.boody{
-    background-color:  #64748b;
-    border-radius: 30px;
+.main{
+    background-color:  rgb(4, 109, 255);
 }

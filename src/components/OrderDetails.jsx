@@ -1,40 +1,39 @@
 import React, { useState } from "react";
 
-// Sample product data
-const products = [
+// Sample space-themed product data
+const spaceProducts = [
   {
     id: 1,
-    name: "Laptop",
+    name: "Galactic Laptop",
     description:
-      "A powerful and sleek laptop for all your computing needs. Equipped with the latest technology, high-performance processors, and a stunning display.",
+      "A powerful and sleek laptop for all your cosmic computing needs. Equipped with advanced space-age technology, high-performance processors, and a stunning interstellar display.",
     pic: "../src/assets/laptop.jpg",
     price: 99000,
   },
   {
     id: 2,
-    name: "Denim Jeans",
+    name: "Nebula Jeans",
     description:
-      "Classic denim jeans that offer both style and comfort. Made from high-quality denim fabric, these jeans are perfect for a casual and trendy look.",
+      "Classic denim jeans that offer both style and comfort, inspired by the swirling beauty of distant nebulae. Made from high-quality cosmic denim fabric, these jeans are perfect for a casual and trendy look.",
     pic: "../src/assets/jeans.jpg",
     price: 2000,
   },
   {
     id: 3,
-    name: "Glasses",
+    name: "Starlight Glasses",
     description:
-      "Elegant drinking glasses for your favorite beverages. Crafted with precision and designed for both practicality and style, these glasses are perfect for any occasion.",
+      "Elegant drinking glasses for your favorite cosmic beverages. Crafted with precision and designed for both practicality and style, these glasses are perfect for any intergalactic occasion.",
     pic: "../src/assets/glasses.jpg",
     price: 300,
   },
 ];
 
-// Styling object
-const styles = {
+// Space-themed styling object
+const spaceStyles = {
   container: {
     fontFamily: "Arial, sans-serif",
-    maxWidth: "600px",
-    margin: "auto",
-    padding: "20px",
+   
+    border:"1px solid black",
   },
   productCard: {
     border: "1px solid #ddd",
@@ -42,6 +41,7 @@ const styles = {
     marginBottom: "10px",
   },
   button: {
+    
     cursor: "pointer",
     padding: "5px 10px",
     backgroundColor: "#4CAF50",
@@ -49,7 +49,7 @@ const styles = {
     border: "none",
     borderRadius: "3px",
   },
-  orderDetails: {
+  spaceDetails: {
     textMd: {
       fontSize: "1.125rem", // 18px
     },
@@ -58,87 +58,104 @@ const styles = {
       justifyContent: "center",
       fontSize: "2rem", // 32px
       fontWeight: "bold",
-      backgroundColor: "#f0f4f8",
+      backgroundColor: "#E0F4FF",
       textAlign: "center",
       margin: "2rem",
       padding: "2rem",
-      borderRadius: "0.375rem", // 6px
+      borderRadius: "0", 
     },
     productContainer: {
       display: "flex",
-      backgroundColor: "#f0f4f8",
+      flexDirection:'column', 
+      backgroundColor: "#E0F4FF",
       margin: "1rem",
       padding: "2rem",
-      borderRadius: "0.75rem", // 12px
+      borderRadius: "0", 
     },
-    productCard: {
-      backgroundColor: "#e5e7eb",
-      borderRadius: "0.75rem", // 12px
+    productCardWrapper: {
+        border:"1px solid black",
+      display:"flex",
+      flexDirection:"row",
+      width:"fit-content",
+      backgroundColor: "#777a78",
+
       margin: "0.5rem",
       padding: "2rem",
-      width: "33.33%",
-    },
-    productImage: {
-      width: "100%",
-      borderRadius: "0.5rem", // 8px
-    },
-    productName: {
-      backgroundColor: "#fff",
-      color: "#3b82f6",
-      fontWeight: "bold",
-      fontSize: "1.25rem", // 20px
-      margin: "0.5rem",
-      borderRadius: "0.25rem", // 4px
-      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-      padding: "1rem",
-      position: "absolute",
-      bottom: "1rem",
-      left: "1rem",
-    },
-    productDescription: {
-      backgroundColor: "#fff",
-      padding: "1rem",
-      borderRadius: "0.25rem", // 4px
-      margin: "1rem 0",
-    },
-    productPrice: {
-      backgroundColor: "#fff",
-      padding: "1rem",
-      borderRadius: "0.25rem", // 4px
-      margin: "1rem 0",
-    },
-    productQuantity: {
-      backgroundColor: "#fff",
-      padding: "1rem",
-      borderRadius: "0.25rem", // 4px
-      margin: "1rem 0",
-    },
-    quantityButton: {
-      cursor: "pointer",
-      padding: "1rem",
-      borderRadius: "0.25rem", // 4px
-      border: "none",
-      margin: "0.5rem",
-    },
-    totalCost: {
-      backgroundColor: "#fff",
-      padding: "2rem",
-      borderRadius: "0.75rem", // 12px
-      margin: "1rem",
-      display: "inline-block",
-      fontSize: "1.125rem", // 18px
-      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
     },
     productImageContainer: {
       position: "relative",
       marginBottom: "1rem",
+      height:"200px",
+    },
+    productImage: {
+        border:"1px solid black",
+      height:"33rem",
+      borderRadius: "0.5rem", // 8px
+    },
+    productName: {
+        border:"1px solid black",
+        height:"fit-content",
+      backgroundColor: "#d5e6da",
+      color: "#66c2ff",
+      fontWeight: "bold",
+      fontSize: "1.25rem", // 20px
+      margin: "0.5rem",
+
+      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+      padding: "1rem",
+    //   position: "absolute",
+      bottom: "1rem",
+      left: "1rem",
+    },
+    productDescription: {
+        border:"1px solid black",
+      height:"fit-content",
+      backgroundColor: "#d5e6da",
+      padding: "1rem",
+      margin: "0 1rem",
+    },
+    productPrice: {
+        border:"1px solid black",
+        height:"fit-content",
+      backgroundColor: "#d5e6da",
+      padding: "1rem",
+
+      margin: "0 1rem",
+    },
+    productQuantity: {
+        border:"1px solid black",
+        height:"fit-content",
+      backgroundColor: "#d5e6da",
+      padding: "1rem",
+
+      margin: "0 1rem",
+    },
+    quantityButton: {
+        border:"1px solid black",
+        height:"fit-content",
+      cursor: "pointer",
+      padding: "1rem",
+      margin: "0.5rem",
+    },
+    totalCost: {
+        border:"1px solid black",
+        height:"fit-content",
+      backgroundColor: "#d5e6da",
+      padding: "2rem",
+      borderRadius: "0.75rem", // 12px
+      margin: "1rem",
+      display:"flex",
+      justifyContent:"center",
+      alignItems:"center",
+      fontSize: "1.125rem", // 18px
+      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
     },
   },
 };
 
 const OrderDetails = () => {
-  const [order, setOrder] = useState({
-    items: products.map((product) => ({ ...product, quantity: 0 })),
+  const [spaceOrder, setSpaceOrder] = useState({
+    items: spaceProducts.map((product) => ({ ...product, quantity: 0 })),
     orderDate: new Date().toLocaleDateString("en-IN"),
     expectedDeliveryDate: new Date(
       Date.now() + 3 * 24 * 60 * 60 * 1000
@@ -146,66 +163,67 @@ const OrderDetails = () => {
   });
 
   const handleQuantityIncrease = (productId) => {
-    setOrder((prevOrder) => {
-      const updatedItems = prevOrder.items.map((item) =>
+    setSpaceOrder((prevSpaceOrder) => {
+      const updatedItems = prevSpaceOrder.items.map((item) =>
         item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
       );
 
       return {
-        ...prevOrder,
+        ...prevSpaceOrder,
         items: updatedItems,
       };
     });
   };
 
   const handleQuantityDecrease = (productId) => {
-    setOrder((prevOrder) => {
-      const updatedItems = prevOrder.items.map((item) =>
+    setSpaceOrder((prevSpaceOrder) => {
+      const updatedItems = prevSpaceOrder.items.map((item) =>
         item.id === productId
           ? { ...item, quantity: Math.max(0, item.quantity - 1) }
           : item
       );
 
       return {
-        ...prevOrder,
+        ...prevSpaceOrder,
         items: updatedItems,
       };
     });
   };
 
   const calculateTotalCost = () => {
-    return order.items
+    return spaceOrder.items
       .reduce((total, item) => total + item.price * item.quantity, 0)
       .toFixed(2);
   };
 
   return (
-    <div style={styles.orderDetails.container}>
-      <p style={styles.orderDetails.heading}>Order Details</p>
-      <div style={styles.orderDetails.productContainer}>
-        {order.items.map((item) => (
-          <div key={item.id} style={styles.orderDetails.productCard}>
-            <div style={styles.orderDetails.productImageContainer}>
+    <div style={spaceStyles.spaceDetails.container}>
+      <p style={spaceStyles.spaceDetails.heading}>Shopping Cart</p>
+      <div style={spaceStyles.spaceDetails.productContainer}>
+        {spaceOrder.items.map((item) => (
+          <div key={item.id} style={spaceStyles.spaceDetails.productCardWrapper}>
+            <div style={spaceStyles.spaceDetails.productImageContainer}>
               <img
                 src={item.pic}
-                style={styles.orderDetails.productImage}
+                style={{...spaceStyles.spaceDetails.productImage,height:"220px"}}
                 alt={item.name}
               />
-              <p style={styles.orderDetails.productName}>{item.name}</p>
+              
             </div>
-            <p style={styles.orderDetails.productDescription}>
+            <p style={spaceStyles.spaceDetails.productName}>{item.name}</p>
+            <p style={spaceStyles.spaceDetails.productDescription}>
               {item.description}
             </p>
-            <p style={styles.orderDetails.productPrice}>
+            <p style={spaceStyles.spaceDetails.productPrice}>
               Price: ₹{item.price.toFixed(2)}
             </p>
-            <p style={styles.orderDetails.productQuantity}>
+            <p style={spaceStyles.spaceDetails.productQuantity}>
               Quantity: {item.quantity}
             </p>
             <button
               onClick={() => handleQuantityIncrease(item.id)}
               style={{
-                ...styles.orderDetails.quantityButton,
+                ...spaceStyles.spaceDetails.quantityButton,
                 backgroundColor: "#4CAF50",
               }}
             >
@@ -213,17 +231,17 @@ const OrderDetails = () => {
             </button>
             <button
               onClick={() => handleQuantityDecrease(item.id)}
-              style={styles.orderDetails.quantityButton}
+              style={spaceStyles.spaceDetails.quantityButton}
             >
               -
             </button>
           </div>
         ))}
       </div>
-      <div style={styles.orderDetails.totalCost}>
-        <h3>Total Cost: ₹{calculateTotalCost()}</h3>
-        <p>Order Date: {order.orderDate}</p>
-        <p>Expected Delivery Date: {order.expectedDeliveryDate}</p>
+      <div style={spaceStyles.spaceDetails.totalCost}>
+        <h3>Total Cost: ₹{calculateTotalCost()}&nbsp;&nbsp;  </h3>
+        <p>Ordered On: {spaceOrder.orderDate}&nbsp;&nbsp; </p>
+        <p>Delivery Date: {spaceOrder.expectedDeliveryDate}&nbsp;&nbsp;  </p>
       </div>
     </div>
   );
